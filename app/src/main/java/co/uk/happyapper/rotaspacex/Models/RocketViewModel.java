@@ -13,7 +13,7 @@ public class RocketViewModel extends ViewModel {
 
     public LiveData<RocketView> observeRockets(){
         if(rockets==null){
-            rockets = new MutableLiveData<>();
+            rockets = new MutableLiveData<RocketView>();
         }
         return rockets;
     }
@@ -34,8 +34,9 @@ public class RocketViewModel extends ViewModel {
     }
 
     private void updateRockets(ArrayList<Rocket> rocketList){
-        RocketView currentView = rockets.getValue();
-        currentView.setRockets(rocketList);
-        rockets.setValue(currentView);
+        RocketView update = new RocketView();
+        update.rockets = new ArrayList<>();
+        update.rockets.addAll(rocketList);
+        rockets.setValue(update);
     }
 }
