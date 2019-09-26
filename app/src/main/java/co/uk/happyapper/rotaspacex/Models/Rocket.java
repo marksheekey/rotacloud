@@ -5,15 +5,15 @@ public class Rocket {
     private Height height;
 
     class Height{
-        private int meters;
-        private int feet;
+        private double meters;
+        private double feet;
     }
 
     public String getName(){
         return this.rocket_name;
     }
 
-    public int getHeight(boolean metric){
+    public double getHeight(boolean metric){
         if(metric){
             return this.height.meters;
         }else{
