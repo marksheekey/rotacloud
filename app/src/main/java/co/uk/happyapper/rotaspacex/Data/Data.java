@@ -7,9 +7,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Data {
+    private RocketAPI api;
 
+    public Data(RocketAPI api) {
+        this.api = api;
+    }
     public void getRockets(final GetRocketsInterface callback){
-        RocketAPI api = RocketAPI.retrofit.create(RocketAPI.class);
         Call<ArrayList<Rocket>> call = api.getRockets();
         call.enqueue(new Callback<ArrayList<Rocket>>() {
             @Override

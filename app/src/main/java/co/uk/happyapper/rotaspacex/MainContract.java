@@ -1,17 +1,37 @@
 package co.uk.happyapper.rotaspacex;
 
-import co.uk.happyapper.rotaspacex.Models.RocketView;
+import java.util.ArrayList;
+
+import co.uk.happyapper.rotaspacex.Models.Rocket;
 
 public class MainContract {
 
     public interface View{
-        void getRockets();
-        void startObservingRockets();
-    }
+        void showProgress();
 
+        void hideProgres();
+
+        void showDisplay();
+
+        void hideDisplay();
+
+        void setUnits(boolean metric);
+
+        void showList(boolean metric, ArrayList<Rocket> rockets);
+
+        void displayEmpty();
+
+        void displayError();
+
+        void hideEmpty();
+
+        void hideError();
+
+    }
     public interface Presenter{
         void init();
-        void gotRockets(RocketView rocketView);
+
+        void unitChange(boolean metric);
     }
 
 }
